@@ -16,6 +16,7 @@ public static class Data
     { Tetromino.S, new Vector2Int[] { new Vector2Int(0,1), new Vector2Int(1,1), new Vector2Int(-1,0), new Vector2Int(0,0) } },
     { Tetromino.T, new Vector2Int[] { new Vector2Int(0,1), new Vector2Int(-1,0), new Vector2Int(0,0), new Vector2Int(1,0) } },
     { Tetromino.Z, new Vector2Int[] { new Vector2Int(-1,1), new Vector2Int(0,1), new Vector2Int(0,0), new Vector2Int(1,0) } },
+    // New 5 tile piece
     { Tetromino.LL, new Vector2Int[] { new Vector2Int(0,1), new Vector2Int(0,0), new Vector2Int(0,-1), new Vector2Int(1,-1), new Vector2Int(2,-1) } },
 };
 
@@ -41,6 +42,7 @@ public static class Data
         { new Vector2Int(0, 0), new Vector2Int( 1, 0), new Vector2Int( 1, 1), new Vector2Int(0,-2), new Vector2Int( 1,-2) },
     };
 
+    // Wall kick so it hits off walls
     private static readonly Vector2Int[,] WallKicksLL = new Vector2Int[,] {
     { new Vector2Int(0, 0), new Vector2Int(-1, 0), new Vector2Int(-2, 0), new Vector2Int(0, 1), new Vector2Int(-1, 1) },
     { new Vector2Int(0, 0), new Vector2Int(1, 0), new Vector2Int(2, 0), new Vector2Int(0, -1), new Vector2Int(1, -1) },
