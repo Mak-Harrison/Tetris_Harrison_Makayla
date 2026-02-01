@@ -27,14 +27,17 @@ public class Piece : MonoBehaviour
         moveTime = Time.time + moveDelay;
         lockTime = 0f;
 
-        if (cells == null)
+        cells = new Vector3Int[data.cells.Length];
+        for (int i = 0; i < data.cells.Length; i++)
         {
-            cells = new Vector3Int[data.cells.Length];
+            Vector2Int c = data.cells[i];
+            cells[i] = new Vector3Int(c.x, c.y, 0);
         }
 
-        for (int i = 0; i < cells.Length; i++)
+        if (data.cells == null || data.cells.Length == 0)
         {
-            cells[i] = (Vector3Int)data.cells[i];
+            Debug.LogError($"{data.tetromino} has no cells defined!");
+            return;
         }
     }
 
@@ -189,6 +192,15 @@ public class Piece : MonoBehaviour
                     cell.y -= 0.5f;
                     x = Mathf.CeilToInt((cell.x * matrix[0] * direction) + (cell.y * matrix[1] * direction));
                     y = Mathf.CeilToInt((cell.x * matrix[2] * direction) + (cell.y * matrix[3] * direction));
+                    break;
+
+                case Tetromino.LL:
+                    // new LL rotation center
+                    // Adjust these values to rotate around vertical line of 3 blocks
+                    cell.x -= 0;  // center X
+                    cell.y -= 1;  // center Y
+                    x = Mathf.RoundToInt((cell.x * matrix[0] * direction) + (cell.y * matrix[1] * direction));
+                    y = Mathf.RoundToInt((cell.x * matrix[2] * direction) + (cell.y * matrix[3] * direction));
                     break;
 
                 default:

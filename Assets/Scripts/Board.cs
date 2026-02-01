@@ -9,7 +9,7 @@ public class Board : MonoBehaviour
 
     public TetrominoData[] tetrominoes;
     public Vector2Int boardSize = new Vector2Int(10, 20);
-    public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
+    public Vector3Int spawnPosition = new Vector3Int(-1, 9, 0); // raise by 1
 
     public RectInt Bounds
     {
